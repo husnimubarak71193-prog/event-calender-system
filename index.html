@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KMCT College Event Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-box">CE</div>
+      <div class="login-logo-text">KMCT College Events</div>
+    </div>
+    <div class="login-title">Welcome back</div>
+    <div class="login-sub">Sign in to access the campus event calendar</div>
+    <div id="login-error" class="login-error"></div>
+    <label class="login-label">Username</label>
+    <input class="login-input" id="login-user" placeholder="Enter username" onkeydown="if(event.key==='Enter')doLogin()">
+    <label class="login-label">Password</label>
+    <input class="login-input" id="login-pass" type="password" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-hint">Demo credentials: <b>admin</b> / <b>college123</b> &nbsp;or&nbsp; <b>student</b> / <b>pass123</b></div>
+  </div>
+</div>
+
+<!-- APP SCREEN -->
+<div id="app-screen">
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-box">CE</div>
+        <div class="logo-text">KMCT College Events</div>
+      </div>
+      <div class="nav-links">
+        <div class="nav-item active" id="nav-dashboard" onclick="setPage('dashboard')">
+          <span class="nav-icon">&#9783;</span> Dashboard
+        </div>
+        <div class="nav-item" id="nav-calendar" onclick="setPage('calendar')">
+          <span class="nav-icon">&#128197;</span> Calendar
+        </div>
+        <div class="nav-item" id="nav-profile" onclick="setPage('profile')">
+          <span class="nav-icon">&#128100;</span> Profile
+        </div>
+      </div>
+      <div class="sidebar-logout" onclick="doLogout()">
+        <span style="font-size:16px;">&#8594;</span> Logout
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+      <div class="topbar">
+        <div class="topbar-title" id="topbar-title">KMCT Campus Events</div>
+        <div class="search-wrap">
+          <span class="search-icon">&#128269;</span>
+          <input class="search-box-input" id="search-input" placeholder="Search events by name or venue..." oninput="handleSearch()">
+        </div>
+        <div class="topbar-icons">
+          <div class="icon-btn">&#128276;<div class="notif-dot"></div></div>
+          <div class="icon-btn">&#9881;</div>
+          <div class="avatar" id="user-avatar">HU</div>
+        </div>
+      </div>
+      <div class="content-area">
+        <div class="main-col" id="main-col"></div>
+        <div class="right-col" id="right-col"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL CONTAINER -->
+<div id="modal-container"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
